@@ -1,7 +1,11 @@
 # GOSAPI
-#Hello, this GOlang TESTful API
+# Hello, this GOlang TESTful API
 
-#http://localhost:3000/faq
-#http://localhost:3000/products
-#http://localhost:3000/status
-#http://localhost:3000/...
+# url
+http://localhost:3000/faq
+# url
+http://localhost:3000/products
+# url
+http://localhost:3000/status
+# url
+http://localhost:3000/...
