@@ -1,5 +1,5 @@
-# GOSAPI
-# Hello, this GOlang TESTful API
+# GOSRAPI -
+# Hello, this GOlang Server RESTful API
 
 # url
 http://localhost:3000/faq
