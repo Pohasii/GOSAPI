@@ -1,4 +1,4 @@
-package faq
+package Faq
 
 import (
 	"net/http"
@@ -16,7 +16,7 @@ var list = []maps{
 		Description : "Hi Bogdan"},
 }
 
-var Faq = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+var Run = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
 	payload, _ := json.Marshal(list)
 	w.Header().Set("Content-Type", "application/json")
 	w.Write([]byte(payload))

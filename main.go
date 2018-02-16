@@ -5,12 +5,12 @@ package main
 import (
 	"net/http"
 	"github.com/gorilla/mux"
-	"GOSAPI/api/status"
-	"GOSAPI/api/product"
-	"GOSAPI/src/api/AddFeedbackHandler"
 	"github.com/gorilla/handlers"
 	"os"
-	"GOSAPI/api/faq"
+	"api/faq"
+	"api/product"
+	"api/AddFeedbackHandler"
+	"api/status"
 )
 
 func main() {
@@ -25,10 +25,10 @@ func main() {
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/",
 		http.FileServer(http.Dir("./static/"))))
 
-	r.Handle("/status", status.StatusHandler).Methods("GET")
-	r.Handle("/products", product.ProductsHandler).Methods("GET")
-	r.Handle("/products/{slug}/feedback", test).Methods("POST")
-	r.Handle("/faq", faq.Faq).Methods("GET")
+	r.Handle("/status", Status.Run).Methods("GET")
+	r.Handle("/products", Product.Run).Methods("GET")
+	r.Handle("/products/{slug}/feedback", AddFeedbackHandler.Run).Methods("POST")
+	r.Handle("/faq", Faq.Run).Methods("GET")
 
 	// Наше приложение запускается на 3000 порту.
 	// Для запуска мы указываем порт и наш роутер

@@ -1,32 +1,32 @@
 package AddFeedbackHandler
 
 import (
-"net/http"
-"github.com/gorilla/mux"
-"encoding/json"
+	"net/http"
+	"github.com/gorilla/mux"
+	"encoding/json"
 )
 
 // 'Это нужно переделать, сюда должен приходить айди продукта, отзыв и токен.
 // тут не должно быть этой структуры и массива.
-type Product struct {
+type product struct {
 	Id int
 	Name string
 	Slug string
 	Description string
 }
 
-var products = []Product{
-	Product{Id: 1, Name: "Hover Shooters", Slug: "hover-shooters",
+var products = []product{
+	product{Id: 1, Name: "Hover Shooters", Slug: "hover-shooters",
 		Description : "Shoot your way to the top on 14 different hoverboards"},
-	Product{Id: 2, Name: "Ocean Explorer", Slug: "ocean-explorer",
+	product{Id: 2, Name: "Ocean Explorer", Slug: "ocean-explorer",
 		Description : "Explore the depths of the sea in this one of a kind"},
-	Product{Id: 3, Name: "Dinosaur Park", Slug : "dinosaur-park",
+	product{Id: 3, Name: "Dinosaur Park", Slug : "dinosaur-park",
 		Description : "Go back 65 million years in the past and ride a T-Rex"},
-	Product{Id: 4, Name: "Cars VR", Slug : "cars-vr",
+	product{Id: 4, Name: "Cars VR", Slug : "cars-vr",
 		Description: "Get behind the wheel of the fastest cars in the world."},
-	Product{Id: 5, Name: "Robin Hood", Slug: "robin-hood",
+	product{Id: 5, Name: "Robin Hood", Slug: "robin-hood",
 		Description : "Pick up the bow and arrow and master the art of archery"},
-	Product{Id: 6, Name: "Real World VR", Slug: "real-world-vr",
+	product{Id: 6, Name: "Real World VR", Slug: "real-world-vr",
 		Description : "Explore the seven wonders of the world in VR"},
 }
 
@@ -39,7 +39,7 @@ var products = []Product{
 // по конкретному продукту. Правильно было бы сохранить результат в базу
 // данных, но для демо нам это не нужно.
 var Run = http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
-	var product Product
+	var product product
 	vars := mux.Vars(r)
 	slug := vars["slug"]
 
